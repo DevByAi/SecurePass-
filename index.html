@@ -7,7 +7,7 @@
     <title>SecurePass</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" type="image/png" href="favicon.png">
-    <style>:root{--primary:#2563eb;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--bg:#f3f4f6}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{background:var(--bg);min-height:100vh;padding:1rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;direction:rtl}.container{max-width:600px;margin:0 auto}.card{background:#fff;border-radius:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;margin-bottom:1.5rem}.card-title{font-size:clamp(1.25rem,4vw,1.5rem);font-weight:600;margin-bottom:1.5rem;color:#1f2937}.input-group{margin-bottom:1rem}input[type=text],input[type=number]{width:100%;padding:.75rem;border:1px solid #e5e7eb;border-radius:.5rem;font-size:1rem;margin-bottom:1rem}input[type=range]{width:100%;margin:1rem 0;height:2px;background:var(--primary);border-radius:2px;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}.btn{background:var(--primary);color:#fff;border:0;padding:.875rem 1.5rem;border-radius:.5rem;font-size:1rem;cursor:pointer;width:100%;margin-bottom:1rem;transition:transform .2s}.btn:active{transform:scale(.98)}.strength-meter{margin:.5rem 0;padding:.5rem 1rem;border-radius:999px;display:inline-block;color:#fff;font-weight:500;font-size:.875rem}.very-weak{background:var(--danger)}.weak{background:var(--warning)}.medium{background:#f59e0b}.strong{background:#84cc16}.very-strong{background:var(--success)}.generated-password{background:#f8fafc;padding:1rem;border-radius:.5rem;font-family:monospace;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;overflow-x:auto}.copy-btn{background:0;border:0;cursor:pointer;padding:.5rem;color:var(--primary);white-space:nowrap;font-weight:500}.options-grid{display:grid;gap:1.25rem;margin:1rem 0}.option-item{display:flex;justify-content:space-between;align-items:center;padding:.25rem 0}.switch{position:relative;display:inline-block;width:46px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;transition:.3s;border-radius:24px}.slider:before{content:"";position:absolute;height:18px;width:18px;right:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.1)}input:checked+.slider{background:var(--primary)}input:checked+.slider:before{transform:translateX(-22px)}#crack-time{font-size:.875rem;color:#6b7280;margin-top:.5rem}.privacy-notice{margin-top:2rem;background:linear-gradient(to left,#f8fafc,#fff)}.privacy-content{font-size:.95rem;line-height:1.6;color:#475569}.privacy-content p{margin:1rem 0}.github-link{display:inline-flex;align-items:center;color:var(--primary);text-decoration:none;font-weight:500;padding:.25rem .5rem;border-radius:.375rem;transition:background-color .2s;margin-right:.5rem}.github-link:hover{background-color:rgba(37,99,235,.1)}.github-icon{margin-right:.5rem;font-size:1.1em}.password-alert{background:#fff3cd;border:1px solid #ffeeba;color:#856404;padding:.75rem 1rem;margin-bottom:1rem;border-radius:.5rem;display:flex;align-items:center;animation:slideIn .3s ease-out}.password-alert.info{background:#cce5ff;border-color:#b8daff;color:#004085}.alert-content{display:flex;align-items:center;gap:.5rem}@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@media (max-width:480px){body{padding:.5rem}.card{padding:1rem;margin-bottom:1rem}.generated-password{font-size:.875rem;padding:.75rem}.privacy-content{font-size:.875rem}}</style>
+    <style>:root{--primary:#2563eb;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--bg:#f3f4f6}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{background:var(--bg);min-height:100vh;padding:1rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;direction:rtl}.container{max-width:600px;margin:0 auto}.card{background:#fff;border-radius:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;margin-bottom:1.5rem}.card-title{font-size:clamp(1.25rem,4vw,1.5rem);font-weight:600;margin-bottom:1.5rem;color:#1f2937}.input-group{margin-bottom:1rem}input[type=text],input[type=number]{width:100%;padding:.75rem;border:1px solid #e5e7eb;border-radius:.5rem;font-size:1rem;margin-bottom:1rem}input[type=range]{width:100%;margin:1rem 0;height:2px;background:var(--primary);border-radius:2px;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}.btn{background:var(--primary);color:#fff;border:0;padding:.875rem 1.5rem;border-radius:.5rem;font-size:1rem;cursor:pointer;width:100%;margin-bottom:1rem;transition:transform .2s}.btn:active{transform:scale(.98)}.strength-meter{margin:.5rem 0;padding:.5rem 1rem;border-radius:999px;display:inline-block;color:#fff;font-weight:500;font-size:.875rem}.very-weak{background:var(--danger)}.weak{background:var(--warning)}.medium{background:#f59e0b}.strong{background:#84cc16}.very-strong{background:var(--success)}.generated-password{background:#f8fafc;padding:1rem;border-radius:.5rem;font-family:monospace;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;overflow-x:auto}.copy-btn{background:0;border:0;cursor:pointer;padding:.5rem;color:var(--primary);white-space:nowrap;font-weight:500}.options-grid{display:grid;gap:1.25rem;margin:1rem 0}.option-item{display:flex;justify-content:space-between;align-items:center;padding:.25rem 0}.switch{position:relative;display:inline-block;width:46px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;transition:.3s;border-radius:24px}.slider:before{content:"";position:absolute;height:18px;width:18px;right:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.1)}input:checked+.slider{background:var(--primary)}input:checked+.slider:before{transform:translateX(-22px)}#crack-time{font-size:.875rem;color:#6b7280;margin-top:.5rem}.privacy-notice{margin-top:2rem;background:linear-gradient(to left,#f8fafc,#fff)}.privacy-content{font-size:.95rem;line-height:1.6;color:#475569}.privacy-content p{margin:1rem 0}.github-link{display:inline-flex;align-items:center;color:var(--primary);text-decoration:none;font-weight:500;padding:.25rem .5rem;border-radius:.375rem;transition:background-color .2s;margin-right:.5rem}.github-link:hover{background-color:rgba(37,99,235,.1)}.github-icon{margin-right:.5rem;font-size:1.1em}.password-alert{background:#fff3cd;border:1px solid #ffeeba;color:#856404;padding:.75rem 1rem;margin-bottom:1rem;border-radius:.5rem;display:flex;align-items:center;animation:slideIn .3s ease-out}.password-alert.info{background:#cce5ff;border-color:#b8daff;color:#004085}.alert-content{display:flex;align-items:center;gap:.5rem}@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}#length-value{font-weight:700;color:var(--primary);min-width:2ch;display:inline-block}@media (max-width:480px){body{padding:.5rem}.card{padding:1rem;margin-bottom:1rem}.generated-password{font-size:.875rem;padding:.75rem}.privacy-content{font-size:.875rem}}</style>
 </head>
 <body>
     <div class="container">
@@ -29,7 +29,7 @@
         <div class="card">
             <h2 class="card-title">יצירת סיסמה חזקה</h2>
             <div class="input-group">
-                <label>אורך סיסמה: <span id="length-value">12</span></label>
+                <label>אורך סיסמה: <span id="length-value"></span></label>
                 <input type="range" 
                        id="length-slider" 
                        min="8" 
@@ -118,6 +118,11 @@
             numbers: document.getElementById('numbers'),
             symbols: document.getElementById('symbols')
         };
+
+        // עדכון ראשוני של ערך הסליידר
+        document.addEventListener('DOMContentLoaded', () => {
+            elements.lengthValue.textContent = elements.lengthSlider.value;
+        });
 
         // פונקציה לבדיקת מספר האפשרויות שנבחרו
         function countSelectedOptions() {
@@ -225,7 +230,6 @@
             elements.passwordText.textContent = password;
 
             if (length < 12 || selectedOptions < 3) {
-                showAlert('if (length < 12 || selectedOptions < 3) {
                 showAlert('הסיסמה שנוצרה עומדת בדרישות המינימום, אך מומלץ להוסיף אורך ומורכבות לאבטחה טובה יותר', 'info');
             }
         }
@@ -248,16 +252,20 @@
             elements.crackTime.innerHTML = `זמן פריצה משוער: ${estimateCrackTime(password)}`;
         });
 
+        // מאזין אירועים לסליידר
         elements.lengthSlider.addEventListener('input', (e) => {
-            elements.lengthValue.textContent = e.target.value;
+            const value = e.target.value;
+            elements.lengthValue.textContent = value;
             
-            if (parseInt(e.target.value) < 8) {
+            if (parseInt(value) < 8) {
                 showAlert('אורך מומלץ: 8 תווים לפחות');
             }
         });
 
+        // מאזין אירועים לכפתור היצירה
         elements.generateBtn.addEventListener('click', generatePassword);
 
+        // מאזין אירועים לכפתור ההעתקה
         elements.copyBtn.addEventListener('click', async () => {
             const password = elements.passwordText.textContent;
             await navigator.clipboard.writeText(password);
@@ -286,3 +294,4 @@
     </script>
 </body>
 </html>
+              
