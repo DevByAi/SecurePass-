@@ -6,10 +6,8 @@
     <meta name="theme-color" content="#2563eb">
     <title>SecurePass</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" type="image/png" href="favicon.png">
-<style>
-:root{--primary:#2563eb;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--bg:#f3f4f6}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{background:var(--bg);min-height:100vh;padding:1rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;direction:rtl}.container{max-width:600px;margin:0 auto}.card{background:#fff;border-radius:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;margin-bottom:1.5rem}.card-title{font-size:clamp(1.25rem,4vw,1.5rem);font-weight:600;margin-bottom:1.5rem;color:#1f2937}.input-group{margin-bottom:1rem}input[type=text],input[type=number]{width:100%;padding:.75rem;border:1px solid #e5e7eb;border-radius:.5rem;font-size:1rem;margin-bottom:1rem}input[type=range]{width:100%;margin:1rem 0;height:2px;background:var(--primary);border-radius:2px;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}.btn{background:var(--primary);color:#fff;border:0;padding:.875rem 1.5rem;border-radius:.5rem;font-size:1rem;cursor:pointer;width:100%;margin-bottom:1rem;transition:transform .2s}.btn:active{transform:scale(.98)}.strength-meter{margin:.5rem 0;padding:.5rem 1rem;border-radius:999px;display:inline-block;color:#fff;font-weight:500;font-size:.875rem}.very-weak{background:var(--danger)}.weak{background:var(--warning)}.medium{background:#f59e0b}.strong{background:#84cc16}.very-strong{background:var(--success)}.generated-password{background:#f8fafc;padding:1rem;border-radius:.5rem;font-family:monospace;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;overflow-x:auto}.copy-btn{background:0;border:0;cursor:pointer;padding:.5rem;color:var(--primary);white-space:nowrap;font-weight:500}.options-grid{display:grid;gap:1.25rem;margin:1rem 0}.option-item{display:flex;justify-content:space-between;align-items:center;padding:.25rem 0}.switch{position:relative;display:inline-block;width:46px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;transition:.3s;border-radius:24px}.slider:before{content:"";position:absolute;height:18px;width:18px;right:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.1)}input:checked+.slider{background:var(--primary)}input:checked+.slider:before{transform:translateX(-22px)}#crack-time{font-size:.875rem;color:#6b7280;margin-top:.5rem}@media (max-width:480px){body{padding:.5rem}.card{padding:1rem;margin-bottom:1rem}.generated-password{font-size:.875rem;padding:.75rem}}
-</style>
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <style>:root{--primary:#2563eb;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--bg:#f3f4f6}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{background:var(--bg);min-height:100vh;padding:1rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;direction:rtl}.container{max-width:600px;margin:0 auto}.card{background:#fff;border-radius:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;margin-bottom:1.5rem}.card-title{font-size:clamp(1.25rem,4vw,1.5rem);font-weight:600;margin-bottom:1.5rem;color:#1f2937}.input-group{margin-bottom:1rem}input[type=text],input[type=number]{width:100%;padding:.75rem;border:1px solid #e5e7eb;border-radius:.5rem;font-size:1rem;margin-bottom:1rem}input[type=range]{width:100%;margin:1rem 0;height:2px;background:var(--primary);border-radius:2px;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}.btn{background:var(--primary);color:#fff;border:0;padding:.875rem 1.5rem;border-radius:.5rem;font-size:1rem;cursor:pointer;width:100%;margin-bottom:1rem;transition:transform .2s}.btn:active{transform:scale(.98)}.strength-meter{margin:.5rem 0;padding:.5rem 1rem;border-radius:999px;display:inline-block;color:#fff;font-weight:500;font-size:.875rem}.very-weak{background:var(--danger)}.weak{background:var(--warning)}.medium{background:#f59e0b}.strong{background:#84cc16}.very-strong{background:var(--success)}.generated-password{background:#f8fafc;padding:1rem;border-radius:.5rem;font-family:monospace;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;overflow-x:auto}.copy-btn{background:0;border:0;cursor:pointer;padding:.5rem;color:var(--primary);white-space:nowrap;font-weight:500}.options-grid{display:grid;gap:1.25rem;margin:1rem 0}.option-item{display:flex;justify-content:space-between;align-items:center;padding:.25rem 0}.switch{position:relative;display:inline-block;width:46px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;transition:.3s;border-radius:24px}.slider:before{content:"";position:absolute;height:18px;width:18px;right:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.1)}input:checked+.slider{background:var(--primary)}input:checked+.slider:before{transform:translateX(-22px)}#crack-time{font-size:.875rem;color:#6b7280;margin-top:.5rem}.privacy-notice{margin-top:2rem;background:linear-gradient(to left,#f8fafc,#fff)}.privacy-content{font-size:.95rem;line-height:1.6;color:#475569}.privacy-content p{margin:1rem 0}.github-link{display:inline-flex;align-items:center;color:var(--primary);text-decoration:none;font-weight:500;padding:.25rem .5rem;border-radius:.375rem;transition:background-color .2s;margin-right:.5rem}.github-link:hover{background-color:rgba(37,99,235,.1)}.github-icon{margin-right:.5rem;font-size:1.1em}.password-alert{background:#fff3cd;border:1px solid #ffeeba;color:#856404;padding:.75rem 1rem;margin-bottom:1rem;border-radius:.5rem;display:flex;align-items:center;animation:slideIn .3s ease-out}.password-alert.info{background:#cce5ff;border-color:#b8daff;color:#004085}.alert-content{display:flex;align-items:center;gap:.5rem}@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@media (max-width:480px){body{padding:.5rem}.card{padding:1rem;margin-bottom:1rem}.generated-password{font-size:.875rem;padding:.75rem}.privacy-content{font-size:.875rem}}</style>
 </head>
 <body>
     <div class="container">
@@ -76,6 +74,23 @@
                 <button class="copy-btn" id="copy-btn">העתק</button>
             </div>
         </div>
+
+        <!-- פרטיות ואבטחה -->
+        <div class="card privacy-notice">
+            <h3 class="card-title">פרטיות ואבטחה</h3>
+            <div class="privacy-content">
+                <p>🔒 <strong>אבטחת מידע:</strong> הסיסמאות שנבדקות או נוצרות אינן נשמרות בשום צורה - לא במחשב שלך, לא בשרת ולא במאגר נתונים כלשהו.</p>
+                <p>💻 <strong>קוד פתוח:</strong> הקוד של האתר זמין לצפייה ב-GitHub:
+                    <a href="https://github.com/Davidtam561/SecurePass-/blob/main/index.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="github-link">
+                       צפה בקוד המקור
+                       <span class="github-icon">→</span>
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -104,6 +119,38 @@
             symbols: document.getElementById('symbols')
         };
 
+        // פונקציה לבדיקת מספר האפשרויות שנבחרו
+        function countSelectedOptions() {
+            let count = 0;
+            if (elements.uppercase.checked) count++;
+            if (elements.lowercase.checked) count++;
+            if (elements.numbers.checked) count++;
+            if (elements.symbols.checked) count++;
+            return count;
+        }
+
+        // פונקציה להצגת התראה
+        function showAlert(message, type = 'warning') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `password-alert ${type}`;
+            alertDiv.innerHTML = `
+                <div class="alert-content">
+                    ⚠️ ${message}
+                </div>
+            `;
+            
+            const existingAlert = document.querySelector('.password-alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+            
+            elements.generateBtn.parentNode.insertBefore(alertDiv, elements.generateBtn);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
         // חישוב חוזק סיסמה
         function calculateStrength(password) {
             let strength = 0;
@@ -131,7 +178,7 @@
         function estimateCrackTime(password) {
             const strength = calculateStrength(password);
             const possibilities = Math.pow(password.length, strength * 10);
-            const guessesPerSecond = 1000000000; // מיליארד ניחושים לשנייה
+            const guessesPerSecond = 1000000000;
             const seconds = possibilities / guessesPerSecond;
             
             if (seconds < 60) return 'פחות מדקה';
@@ -144,6 +191,19 @@
 
         // יצירת סיסמה
         function generatePassword() {
+            const length = parseInt(elements.lengthSlider.value);
+            const selectedOptions = countSelectedOptions();
+            
+            if (length < 8) {
+                showAlert('מומלץ להשתמש בסיסמה באורך 8 תווים לפחות לאבטחה טובה יותר');
+                return;
+            }
+            
+            if (selectedOptions < 2) {
+                showAlert('מומלץ לבחור לפחות 2 סוגי תווים שונים לאבטחה טובה יותר');
+                return;
+            }
+
             let chars = '';
             if (elements.uppercase.checked) chars += CHARS.uppercase;
             if (elements.lowercase.checked) chars += CHARS.lowercase;
@@ -151,11 +211,10 @@
             if (elements.symbols.checked) chars += CHARS.symbols;
 
             if (!chars) {
-                alert('יש לבחור לפחות סוג תווים אחד');
+                showAlert('יש לבחור לפחות סוג תווים אחד');
                 return;
             }
 
-            const length = parseInt(elements.lengthSlider.value);
             let password = '';
             for (let i = 0; i < length; i++) {
                 const randomIndex = Math.floor(Math.random() * chars.length);
@@ -164,6 +223,11 @@
 
             elements.generatedPassword.style.display = 'flex';
             elements.passwordText.textContent = password;
+
+            if (length < 12 || selectedOptions < 3) {
+                showAlert('if (length < 12 || selectedOptions < 3) {
+                showAlert('הסיסמה שנוצרה עומדת בדרישות המינימום, אך מומלץ להוסיף אורך ומורכבות לאבטחה טובה יותר', 'info');
+            }
         }
 
         // מאזיני אירועים
@@ -186,6 +250,10 @@
 
         elements.lengthSlider.addEventListener('input', (e) => {
             elements.lengthValue.textContent = e.target.value;
+            
+            if (parseInt(e.target.value) < 8) {
+                showAlert('אורך מומלץ: 8 תווים לפחות');
+            }
         });
 
         elements.generateBtn.addEventListener('click', generatePassword);
@@ -197,6 +265,16 @@
             setTimeout(() => {
                 elements.copyBtn.textContent = 'העתק';
             }, 2000);
+        });
+
+        // מאזיני אירועים למתגים
+        [elements.uppercase, elements.lowercase, elements.numbers, elements.symbols].forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const selectedOptions = countSelectedOptions();
+                if (selectedOptions < 2) {
+                    showAlert('מומלץ לבחור לפחות 2 סוגי תווים');
+                }
+            });
         });
 
         // PWA support
