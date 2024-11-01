@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2563eb">
+    <title>בודק ומחולל סיסמאות</title>
+<style>
+:root{--primary:#2563eb;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--bg:#f3f4f6}*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{background:var(--bg);min-height:100vh;padding:1rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;direction:rtl}.container{max-width:600px;margin:0 auto}.card{background:#fff;border-radius:.75rem;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;margin-bottom:1.5rem}.card-title{font-size:clamp(1.25rem,4vw,1.5rem);font-weight:600;margin-bottom:1.5rem;color:#1f2937}.input-group{margin-bottom:1rem}input[type=text],input[type=number]{width:100%;padding:.75rem;border:1px solid #e5e7eb;border-radius:.5rem;font-size:1rem;margin-bottom:1rem}input[type=range]{width:100%;margin:1rem 0;height:2px;background:var(--primary);border-radius:2px;-webkit-appearance:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--primary);border-radius:50%;cursor:pointer;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}.btn{background:var(--primary);color:#fff;border:0;padding:.875rem 1.5rem;border-radius:.5rem;font-size:1rem;cursor:pointer;width:100%;margin-bottom:1rem;transition:transform .2s}.btn:active{transform:scale(.98)}.strength-meter{margin:.5rem 0;padding:.5rem 1rem;border-radius:999px;display:inline-block;color:#fff;font-weight:500;font-size:.875rem}.very-weak{background:var(--danger)}.weak{background:var(--warning)}.medium{background:#f59e0b}.strong{background:#84cc16}.very-strong{background:var(--success)}.generated-password{background:#f8fafc;padding:1rem;border-radius:.5rem;font-family:monospace;margin:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;overflow-x:auto}.copy-btn{background:0;border:0;cursor:pointer;padding:.5rem;color:var(--primary);white-space:nowrap;font-weight:500}.options-grid{display:grid;gap:1.25rem;margin:1rem 0}.option-item{display:flex;justify-content:space-between;align-items:center;padding:.25rem 0}.switch{position:relative;display:inline-block;width:46px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#e5e7eb;transition:.3s;border-radius:24px}.slider:before{content:"";position:absolute;height:18px;width:18px;right:3px;bottom:3px;background:#fff;transition:.3s;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.1)}input:checked+.slider{background:var(--primary)}input:checked+.slider:before{transform:translateX(-22px)}#crack-time{font-size:.875rem;color:#6b7280;margin-top:.5rem}@media (max-width:480px){body{padding:.5rem}.card{padding:1rem;margin-bottom:1rem}.generated-password{font-size:.875rem;padding:.75rem}}
+</style>
+</head>
+<body>
+    <div class="container">
+        <!-- בודק חוזק סיסמה -->
+        <div class="card">
+            <h2 class="card-title">בודק חוזק סיסמה</h2>
+            <div class="input-group">
+                <input type="text" 
+                       id="password-input" 
+                       placeholder="הקלד סיסמה לבדיקה"
+                       autocomplete="off"
+                       spellcheck="false">
+                <div id="strength-indicator"></div>
+                <div id="crack-time"></div>
+            </div>
+        </div>
+
+        <!-- מחולל סיסמאות -->
+        <div class="card">
+            <h2 class="card-title">יצירת סיסמה חזקה</h2>
+            <div class="input-group">
+                <label>אורך סיסמה: <span id="length-value">12</span></label>
+                <input type="range" 
+                       id="length-slider" 
+                       min="8" 
+                       max="32" 
+                       value="12">
+            </div>
+
+            <div class="options-grid">
+                <div class="option-item">
+                    <label>אותיות גדולות</label>
+                    <label class="switch">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="option-item">
+                    <label>אותיות קטנות</label>
+                    <label class="switch">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="option-item">
+                    <label>מספרים</label>
+                    <label class="switch">
+                        <input type="checkbox" id="numbers" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="option-item">
+                    <label>סימנים מיוחדים</label>
+                    <label class="switch">
+                        <input type="checkbox" id="symbols" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn" id="generate-btn">צור סיסמה</button>
+            <div id="generated-password" class="generated-password" style="display: none;">
+                <span id="password-text"></span>
+                <button class="copy-btn" id="copy-btn">העתק</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // קבועים
+        const CHARS = {
+            uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            lowercase: 'abcdefghijklmnopqrstuvwxyz',
+            numbers: '0123456789',
+            symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+        };
+
+        // אלמנטים
+        const elements = {
+            passwordInput: document.getElementById('password-input'),
+            strengthIndicator: document.getElementById('strength-indicator'),
+            crackTime: document.getElementById('crack-time'),
+            lengthSlider: document.getElementById('length-slider'),
+            lengthValue: document.getElementById('length-value'),
+            generateBtn: document.getElementById('generate-btn'),
+            generatedPassword: document.getElementById('generated-password'),
+            passwordText: document.getElementById('password-text'),
+            copyBtn: document.getElementById('copy-btn'),
+            uppercase: document.getElementById('uppercase'),
+            lowercase: document.getElementById('lowercase'),
+            numbers: document.getElementById('numbers'),
+            symbols: document.getElementById('symbols')
+        };
+
+        // חישוב חוזק סיסמה
+        function calculateStrength(password) {
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 1;
+            if (password.length >= 12) strength += 1;
+            if (/[A-Z]/.test(password)) strength += 1;
+            if (/[a-z]/.test(password)) strength += 1;
+            if (/[0-9]/.test(password)) strength += 1;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+
+            return strength;
+        }
+
+        // קבלת תווית חוזק
+        function getStrengthLabel(strength) {
+            if (strength <= 2) return ['חלשה מאוד', 'very-weak'];
+            if (strength <= 3) return ['חלשה', 'weak'];
+            if (strength <= 4) return ['בינונית', 'medium'];
+            if (strength <= 5) return ['חזקה', 'strong'];
+            return ['חזקה מאוד', 'very-strong'];
+        }
+
+        // הערכת זמן פריצה
+        function estimateCrackTime(password) {
+            const strength = calculateStrength(password);
+            const possibilities = Math.pow(password.length, strength * 10);
+            const guessesPerSecond = 1000000000; // מיליארד ניחושים לשנייה
+            const seconds = possibilities / guessesPerSecond;
+            
+            if (seconds < 60) return 'פחות מדקה';
+            if (seconds < 3600) return `${Math.floor(seconds / 60)} דקות`;
+            if (seconds < 86400) return `${Math.floor(seconds / 3600)} שעות`;
+            if (seconds < 2592000) return `${Math.floor(seconds / 86400)} ימים`;
+            if (seconds < 31536000) return `${Math.floor(seconds / 2592000)} חודשים`;
+            return `${Math.floor(seconds / 31536000)} שנים`;
+        }
+
+        // יצירת סיסמה
+        function generatePassword() {
+            let chars = '';
+            if (elements.uppercase.checked) chars += CHARS.uppercase;
+            if (elements.lowercase.checked) chars += CHARS.lowercase;
+            if (elements.numbers.checked) chars += CHARS.numbers;
+            if (elements.symbols.checked) chars += CHARS.symbols;
+
+            if (!chars) {
+                alert('יש לבחור לפחות סוג תווים אחד');
+                return;
+            }
+
+            const length = parseInt(elements.lengthSlider.value);
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * chars.length);
+                password += chars[randomIndex];
+            }
+
+            elements.generatedPassword.style.display = 'flex';
+            elements.passwordText.textContent = password;
+        }
+
+        // מאזיני אירועים
+        elements.passwordInput.addEventListener('input', (e) => {
+            const password = e.target.value;
+            if (!password) {
+                elements.strengthIndicator.innerHTML = '';
+                elements.crackTime.innerHTML = '';
+                return;
+            }
+
+            const strength = calculateStrength(password);
+            const [label, className] = getStrengthLabel(strength);
+            
+            elements.strengthIndicator.innerHTML = `
+                <span class="strength-meter ${className}">${label}</span>
+            `;
+            elements.crackTime.innerHTML = `זמן פריצה משוער: ${estimateCrackTime(password)}`;
+        });
+
+        elements.lengthSlider.addEventListener('input', (e) => {
+            elements.lengthValue.textContent = e.target.value;
+        });
+
+        elements.generateBtn.addEventListener('click', generatePassword);
+
+        elements.copyBtn.addEventListener('click', async () => {
+            const password = elements.passwordText.textContent;
+            await navigator.clipboard.writeText(password);
+            elements.copyBtn.textContent = 'הועתק!';
+            setTimeout(() => {
+                elements.copyBtn.textContent = 'העתק';
+            }, 2000);
+        });
+
+        // PWA support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
+    </script>
+</body>
+</html>
